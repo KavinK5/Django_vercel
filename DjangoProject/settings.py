@@ -29,8 +29,19 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
+# import os
+
+allowed_hosts_str = os.environ.get("ALLOWED_HOSTS")
+
+if allowed_hosts_str is not None:
+    ALLOWED_HOSTS = allowed_hosts_str.split(" ")
+else:
+    # Provide a default value or handle the absence of the environment variable
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'elysiumformregistration.com']
+
+# Now you can use ALLOWED_HOSTS in your Django settings.
 
 # Application definition
 
