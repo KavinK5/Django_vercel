@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(164, 162, 159, 0.9);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* margin: 0; */
+        }
+
+        .Container-div{
+            max-width: 700px;
+            border: 2px solid rgb(164, 162, 159, 0.2);
+            margin: auto;
+            background-color: #fff;
+            padding: 15px;
+        }
+
+        .Congrats-div div{
+            font-size: 1.35em;
+            background-color: rgb(164, 162, 159, 0.5);
+            font-weight: bold;
+            padding: 5px;
+            display: inline;
+        }
+
+        .Details-Entered{
+            font-size: 1.27em;
+            text-decoration: underline;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .Match-Details{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align:center;
+            margin-top: 35px;
+        }
+
+        .Match-Details div:nth-child(1){
+            font-weight: bold;
+            font-size: 1.25em;
+        }
+
+        .Match-Details div:nth-child(2){
+            font-size: 1.22em;
+        }
+
+        .Contact-Elysium{
+            text-align: center;
+        }
+
+        .Contact-Elysium div:nth-child(1){
+            margin-top: 40px;
+            font-size: 1.3em;
+        }
+
+        .Contact-Elysium div:nth-child(1) span{
+            font-weight: bold;
+        }
+
+        .Contact-Elysium div:nth-child(2){
+            font-size: 1.13em;
+            margin-top: 10px;
+        }
+
+        @media (width < 600px){
+            .Congrats-div{
+                display: flex;
+                justify-content: center;
+            }
+            .Congrats-div div{
+                font-size: 1.25em;
+                background-color: transparent;
+            }
+
+            .Details-Entered{
+                font-size: 1.17em;
+            }
+
+            .Match-Details div:nth-child(1){
+                font-weight: bold;
+                font-size: 1.15em;
+            }
+
+            .Match-Details div:nth-child(2){
+                font-size: 1.12em;
+            }
+
+            .Contact-Elysium div:nth-child(1){
+                font-size: 1.15em;
+            }
+
+            .Contact-Elysium div:nth-child(2){
+                font-size: 1em;
+            }
+        }
+
+        @media (width < 700px){
+            body{
+                margin:20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="Container-div">
+        <div class="Congrats-div">
+            <div>Your details have been registered successfully</div>
+        </div>
+
+        <div class="Details-Entered">
+            Entered Details
+        </div>
+
+        <div class="Match-Details">
+            <div>Name:</div>
+            <div>{{user.Name_COL}}</div>
+        </div>
+
+        <div class="Match-Details">
+            <div>Qualification:</div>
+            <div>{{user.Qualification_COL}}</div>
+        </div>
+
+        <div class="Match-Details">
+            <div>Contact:</div>
+            <div>{{user.MobileNumber_COL}}</div>
+        </div>
+
+        <div class="Match-Details">
+            <div>Email:</div>
+            <div>{{user.EmailID_COL}}</div>
+        </div>
+
+        <div class="Match-Details">
+            <div>Field:</div>
+            <div>{{user.OptedField_COL}}</div>
+        </div>
+
+        <div class="Match-Details">
+            <div>Courses:</div>
+            <div>{{user.OptedCourse_COL}}</div>
+        </div>
+
+        <div class="Match-Details">
+            <div>Mode of Class:</div>
+            <div>{{user.ModeOfClass_COL}}</div>
+        </div>
+
+        <div class="Contact-Elysium">
+            <div>Visit <span>Elysium Academy</span> for further details regarding</div>
+            <div>Fee Structure   |   Time Slot   |   Date of Joining</div>
+        </div>
+    </div>
+</body>
+</html>

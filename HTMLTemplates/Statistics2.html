@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChartJS</title>
+    {% load static %}
+    <style>
+        *
+        {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color:rgb(255, 255, 236);
+        }
+    </style>
+</head>
+<body style="margin:0;">
+
+<!--    <div>-->
+<!--        <div>DS: {{DataSccount}}</div><br>-->
+<!--        <div>Azure: {{Azurecount}}</div>-->
+<!--        <div>AWS: {{AWScount}}</div><br>-->
+<!--        <div>Frontend : {{Frntcount}}</div>-->
+<!--        <div>MERN: {{MERNcount}}</div>-->
+<!--        <div>PyFull: {{Pyfscount}}</div>-->
+<!--        <div>JvFs: {{Jvfscount}}</div><br>-->
+<!--        <div>Python: {{Pythoncount}}</div>-->
+<!--        <div>C: {{Ccount}}</div>-->
+<!--        <div>C++ : {{Cpluscount}}</div>-->
+<!--        <div>Ruby: {{Rubycount}}</div>-->
+<!--        <div>Kotlin: {{Kotlincount}}</div>-->
+<!--        <div>GO: {{Golangcount}}</div>-->
+<!--        <div>php: {{Phpcount}}</div>-->
+<!--        <div>R: {{Rcount}}</div>-->
+<!--        <div>TS: {{TScount}}</div>-->
+<!--        <div>Java: {{Javacount}}</div>-->
+<!--        <div>HTML,CSS,JS: {{HCJcount}}</div>-->
+<!--    </div>-->
+
+<div style="background-color:lightslategrey;position:sticky;top:0px;width:100%;">
+    <img src="{% static 'ForIMAGES/elysium.png'%}" style="background-color:transparent;height:80px;width:250px;margin:4px;">
+    <a href="{% url 'Form1' %}" style="background-color:transparent;position:absolute;right:30px;top:25px;text-decoration:none;font-weight:bold;border-radius:10px;font-size:1.1em;color:black;border:2px solid black;padding:5px;" class="BackForm">BackToForm</a>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:1.7em;justify-content:center;flex-direction:row-reverse;">
+    <div style="width:650px;">
+        <canvas id="myChartCC"></canvas>
+    </div>
+
+    <div style="width:650px;">
+        <canvas id="myChartDS"></canvas>
+    </div>
+</div>
+
+<div style="display:flex;justify-content:center;margin-top:60px;">
+    <div style="width:700px;">
+      <canvas id="myChartWD"></canvas>
+    </div>
+</div>
+
+<div style="display:flex;justify-content:center;margin-top:60px;">
+    <div style="width:800px;">
+      <canvas id="myChartPL"></canvas>
+    </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctxWD = document.getElementById('myChartWD');
+
+new Chart(ctxWD, {
+  type: 'bar',
+  data: {
+    labels: ['Frontend', 'MERN', 'PythonFullStack', 'JavaFullStack'],
+    datasets: [{
+      label: 'Admits in Web Development',
+      data: [{{Frntcount}}, {{MERNcount}}, {{Pyfscount}}, {{Jvfscount }}],
+      barThickness: 25,
+      backgroundColor: [
+        'rgba(89, 50, 143, 0.8)', 'rgba(153, 102, 255, 0.8)',
+  'rgba(240, 120, 50, 0.8)', 'rgba(46, 102, 96, 0.8)'],
+
+      borderColor: [
+        'rgba(89, 50, 143, 1)', 'rgba(153, 102, 255, 1)',
+  'rgba(240, 120, 50, 1)', 'rgba(46, 102, 96, 1)'],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      x: {
+        ticks: {
+          font: {
+            weight: 'bold'
+          }
+        }
+      },
+      y: {
+        beginAtZero: true,
+        ticks: {
+          font: {
+            weight: 'bold'
+          }
+        }
+      }
+    },
+
+  }
+});
+
+
+
+const ctxPL = document.getElementById('myChartPL');
+
+new Chart(ctxPL, {
+  type: 'bar',
+  data: {
+    labels: ['C', 'C++', 'C Sharp', 'Python', 'Java', 'HTML,CSS,JS', 'TS', 'R', 'php', 'Ruby', 'Kotlin', 'Golang'],
+    datasets: [{
+      label: 'Admits in Programming Languages',
+      data: [{{Ccount}}, {{Cpluscount}}, {{Csharpcount}}, {{Pythoncount}}, {{Javacount}}, {{HCJcount}}, {{TScount}}, {{Rcount}}, {{Phpcount}}, {{Rubycount}}, {{Kotlincount}}, {{Golangcount}}],
+      barThickness: 25,
+      backgroundColor: ['rgba(255, 99, 132, 0.8)', 'rgba(54, 162, 235, 0.8)', 'rgba(255, 206, 86, 0.8)', 'rgba(75, 192, 192, 0.8)',
+        'rgba(89, 50, 143, 0.8)', 'rgba(153, 102, 255, 0.8)', 'rgba(255, 159, 64, 0.8)', 'rgba(240, 120, 50, 0.8)',
+        'rgba(143, 60, 99, 0.8)', 'rgba(120, 50, 72, 0.8)', 'rgba(103, 104, 50, 0.8)', 'rgba(46, 102, 96, 0.8)'],
+      borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)',
+        'rgba(89, 50, 143, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)', 'rgba(240, 120, 50, 1)',
+        'rgba(143, 60, 99, 1)', 'rgba(120, 50, 72, 1)', 'rgba(103, 104, 50, 1)', 'rgba(46, 102, 96, 1)'],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      x: {
+        ticks: {
+          font: {
+            weight: 'bold'
+          }
+        }
+      },
+      y: {
+        beginAtZero: true,
+        ticks: {
+          font: {
+            weight: 'bold'
+          }
+        }
+      }
+    },
+
+  }
+});
+
+
+
+
+
+
+  const ctxDS = document.getElementById('myChartDS');
+
+new Chart(ctxDS, {
+  type: 'bar',
+  data: {
+    labels: ['Python Data Science', 'Data Analysis', 'Machine Learning' , 'Deep Learning','Artificial Intelligence'],
+    datasets: [{
+      label: 'Admits in Data Science',
+      data: [{{DataSccount}},{{DataAncount}} , {{MLcount}},{{PydeepLcount}} , {{AIcount}}],
+      barThickness: 25,
+      backgroundColor: ['rgba(240, 120, 50, 0.8)',
+'rgba(143, 60, 99, 0.8)', 'rgba(120, 50, 72, 0.8)', 'rgba(103, 104, 50, 0.8)', 'rgba(46, 102, 96, 0.8)'
+],
+
+      borderColor: [
+        'rgba(240, 120, 50, 1)',
+'rgba(143, 60, 99, 1)', 'rgba(120, 50, 72, 1)', 'rgba(103, 104, 50, 1)', 'rgba(46, 102, 96, 1)'
+],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      x: {
+        ticks: {
+          font: {
+            weight: 'bold'
+          }
+        }
+      },
+      y: {
+        beginAtZero: true,
+        ticks: {
+          font: {
+            weight: 'bold'
+          }
+        }
+      }
+    },
+
+  }
+});
+
+
+
+const ctxCC = document.getElementById('myChartCC');
+
+new Chart(ctxCC, {
+  type: 'bar',
+  data: {
+    labels: ['Azure', 'AWS'],
+    datasets: [{
+      label: 'Admits in Cloud Computing',
+      data: [{{Azurecount}},{{AWScount}}],
+      barThickness: 25,
+      backgroundColor: ['rgba(255, 206, 86, 0.8)', 'rgba(75, 192, 192, 0.8)'],
+
+      borderColor: ['rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      x: {
+        ticks: {
+          font: {
+            weight: 'bold'
+          }
+        }
+      },
+      y: {
+        beginAtZero: true,
+        ticks: {
+          font: {
+            weight: 'bold'
+          }
+        }
+      }
+    },
+
+  }
+});
+
+
+</script>
+</body>
+</html>

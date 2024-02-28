@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <style>
+        body{
+            margin:0;
+            margin-bottom: 100px;
+            /* padding: 0;   */
+            background-color:#fdfff5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header{
+            background-color: lightslategray;
+        }
+
+        header img{
+            height:80px;
+            width:250px;
+            margin: 5px;
+        }
+
+        header div{
+            position: absolute;
+            right:10px;
+            top:30px;
+        }
+
+        header div a{
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            padding: 5px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            border:2px solid #000;
+        }
+
+        header div a:hover{
+            color: #000;
+            border:3px solid #000;
+        }
+
+        .totalAdmits{
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+
+        .totalAdmits div{
+            display: inline;
+            text-align: center;
+            background-color:#e5e4e2;
+            padding: 5px;
+            margin: auto;
+            font-size: 1.4em;
+        }
+
+        @media (max-width:500px){
+            header img{
+                height: 60px;
+                width: 170px;
+            }
+
+            header div{
+                position: absolute;
+                right:5px;
+                top:30px;
+            }
+
+            header div a:hover{
+                color: #000;
+                border:2px solid #000;
+            }
+
+            header div a{
+                font-weight: bold;
+                /* padding: 2px; */
+                font-size: 1em;
+                border-radius: 10px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                border:2px solid #000;
+            }
+        }
+
+        @media (max-width:400px){
+            header div a{
+                font-size: 0.85em;
+            }
+        }
+
+        .cloudC,.webDev, .proLang, .dataSc{
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+
+        .cloudC div:nth-child(1), .webDev div:nth-child(1), .proLang div:nth-child(1), .dataSc div:nth-child(1){
+            font-size: 1.2em;
+            padding:5px 15px;
+            background-color:#e5e4e2;
+            font-weight: bold;
+            display: inline;
+        }
+
+        table tr th, table tr td{
+            text-align: center;
+            padding: 20px;
+            text-wrap: wrap;
+        }
+
+        table{
+            max-width: 100px;
+        }
+
+        table tr th{
+            font-size: 1.1em;
+        }
+
+        table tr td{
+            font-size: 1.05em;
+            padding:20px 30px;
+        }
+
+        #cc2{
+            max-width: 500px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: center;
+            margin: auto;
+            column-gap:2em;
+        }
+
+        .PLGrid{
+            max-width: 1200px;
+            display: grid;
+            margin: auto;
+            padding:10px;
+            row-gap: 20px;
+            column-gap: 20px;
+            justify-content: end;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .PLGrid4, .DSGrid4{
+            max-width: 700px;
+            display: grid;
+            margin: auto;
+            padding:10px;
+            row-gap: 20px;
+            column-gap: 20px;
+            justify-content: center;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .PLGrid5{
+            max-width: 800px;
+            display: grid;
+            margin: auto;
+            padding:10px;
+            row-gap: 20px;
+            column-gap: 20px;
+            justify-content: center;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .PLGrid5 table:nth-child(4), .PLGrid5 table:nth-child(5){
+            justify-self: end;
+        }
+
+        .PLGrid table{
+            justify-self: center
+        }
+
+        .lastDS{
+            display: flex;
+            margin-top: 10px;
+            justify-content: center;
+        }
+
+
+        @media (max-width:1300px) {
+            .PLGrid4, .DSGrid4{
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .PLGrid4 table, .DSGrid4 table{
+                justify-self: center;
+            }
+        }
+
+        @media (max-width:1150px){
+            .PLGrid12{
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width:920px){
+            #cc2{
+                grid-template-columns: repeat(1,1fr);
+                row-gap: 1em;
+            }
+
+            #cc2 table{
+                justify-self: center;
+            }
+        }
+
+        @media (max-width:700px){
+            .PLGrid12, .PLGrid4, .DSGrid4{
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .totalAdmits div{
+                padding: 2px;
+                font-size: 1.05em;
+            }
+        }
+
+        @media (max-width:600px){
+            .cloudC div:nth-child(1), .webDev div:nth-child(1), .proLang div:nth-child(1), .dataSc div:nth-child(1){
+                font-size: 1.05em;
+                padding:5px 15px;
+            }
+
+            table tr th{
+                font-size: 1.05em;
+            }
+
+            table tr td{
+                font-size: 0.95em;
+                padding:15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="{% static 'ForIMAGES/elysium.png' %}">
+
+        <div>
+            <a href="{% url 'Form1' %}">BackToForm</a>
+        </div>
+    </header>
+
+    <div class="totalAdmits">
+        <div>Total Number of Admits in Elysium Academy: {{totalAdmitsCount}}</div>
+    </div>
+
+    <div class="cloudC">
+        <div>Cloud Computing</div>
+    </div>
+
+    <div id="cc2">
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Microsoft Azure</th>
+                <td><meter min="0" max="10" value="{{Azurecount}}" id="AzureParameter"></meter><br>{{Azurecount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Amazon Web Services</th>
+                <td><meter min="0" max="10" value="{{AWScount}}" id="AWSParameter"></meter><br>{{AWScount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Google Cloud Services</th>
+                <td><meter min="0" max="10" value="{{GCScount}}" id="GCSParameter"></meter><br>{{GCScount}} Admits</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- <div class="webDev">
+        <div>Web Development</div>
+    </div>
+
+    <div id="wd4">
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Frontend Web Development</th>
+                <td><meter min="0" max="10" value="{{Frntcount}}" id="frontendParameter"></meter><br>{{Frntcount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>MERN Stack</th>
+                <td><meter min="0" max="10" value="{{MERNcount}}" id="MERNparameter"></meter><br>{{MERNcount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Python Full Stack Web Development</th>
+                <td><meter min="0" max="10" value="{{Pyfscount}}" id="pythonfsParameter"></meter><br>{{Pyfscount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Java Full Stack Web Development</th>
+                <td><meter min="0" max="10" value="{{Jvfscount}}" id="javafsParameter"></meter><br>{{Jvfscount}} Admits</td>
+            </tr>
+        </table>
+    </div> -->
+
+    <div class="proLang">
+        <div>Programming Languages</div>
+    </div>
+
+    <div class="PLGrid PLGrid12">
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>C</th>
+                <td><meter min="0" max="10" value="{{Ccount}}" id="CParameter"></meter><br>{{Ccount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>C++</th>
+                <td><meter min="0" max="10" value="{{Cpluscount}}" id="CplusParameter"></meter><br>{{Cpluscount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>C Sharp</th>
+                <td><meter min="0" max="10" value="{{Csharpcount}}" id="CshParameter"></meter><br>{{Csharpcount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Python</th>
+                <td><meter min="0" max="10" value="{{Pythoncount}}" id="pythonMeter"></meter><br>{{Pythoncount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Java</th>
+                <td><meter min="0" max="10" value="{{Javacount}}" id="javaParameter"></meter><br>{{Javacount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Kotlin</th>
+                <td><meter min="0" max="10" value="{{Kotlincount}}" id="KotlinParameter"></meter><br>{{Kotlincount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>TypeScript</th>
+                <td><meter min="0" max="10" value="{{TScount}}" id="TSParameter"></meter><br>{{TScount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>GO</th>
+                <td><meter min="0" max="10" value="{{Golangcount}}" id="GOParameter"></meter><br>{{Golangcount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>HTML, CSS, JS</th>
+                <td><meter min="0" max="10" value="{{HCJcount}}" id="HCJSParameter"></meter><br>{{HCJcount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>php</th>
+                <td><meter min="0" max="10" value="{{Phpcount}}" id="phpParameter"></meter><br>{{Phpcount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>R</th>
+                <td><meter min="0" max="10" value="{{Rcount}}" id="RParameter"></meter><br>{{Rcount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Ruby</th>
+                <td><meter min="0" max="10" value="{{Rubycount}}" id="RubyParameter"></meter><br>{{Rubycount}} Admits</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="webDev">
+        <div>Web Development</div>
+    </div>
+
+    <div class="PLGrid4">
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Frontend Web Development</th>
+                <td><meter min="0" max="10" value="{{Frntcount}}" id="frontendParameter"></meter><br>{{Frntcount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>MERN Stack</th>
+                <td><meter min="0" max="10" value="{{MERNcount}}" id="MERNparameter"></meter><br>{{MERNcount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Python Full Stack Web Development</th>
+                <td><meter min="0" max="10" value="{{Pyfscount}}" id="pythonfsParameter"></meter><br>{{Pyfscount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Java Full Stack Web Development</th>
+                <td><meter min="0" max="10" value="{{Jvfscount}}" id="javafsParameter"></meter><br>{{Jvfscount}} Admits</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="dataSc">
+        <div>Field: Data Science</div>
+    </div>
+
+    <!-- <div class="PLGrid5">
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Machine Learning</th>
+                <td><meter min="0" max="10" value="{{Frntcount}}" id="frontendParameter"></meter><br>{{Frntcount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Deep Learning</th>
+                <td><meter min="0" max="10" value="{{MERNcount}}" id="MERNparameter"></meter><br>{{MERNcount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Artificial Intelligence</th>
+                <td><meter min="0" max="10" value="{{Pyfscount}}" id="pythonfsParameter"></meter><br>{{Pyfscount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Data Analysis</th>
+                <td><meter min="0" max="10" value="{{Jvfscount}}" id="javafsParameter"></meter><br>{{Jvfscount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Python Data Science</th>
+                <td><meter min="0" max="10" value="{{Jvfscount}}" id="javafsParameter"></meter><br>{{Jvfscount}} Admits</td>
+            </tr>
+        </table>
+    </div> -->
+
+    <!-- <div id="DSCGrid">
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Machine Learning</th>
+                <td><meter min="0" max="10" value="{{Frntcount}}" id="frontendParameter"></meter><br>{{Frntcount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Deep Learning</th>
+                <td><meter min="0" max="10" value="{{MERNcount}}" id="MERNparameter"></meter><br>{{MERNcount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Artificial Intelligence</th>
+                <td><meter min="0" max="10" value="{{Pyfscount}}" id="pythonfsParameter"></meter><br>{{Pyfscount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Data Analysis</th>
+                <td><meter min="0" max="10" value="{{Jvfscount}}" id="javafsParameter"></meter><br>{{Jvfscount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Python Data Science</th>
+                <td><meter min="0" max="10" value="{{Jvfscount}}" id="javafsParameter"></meter><br>{{Jvfscount}} Admits</td>
+            </tr>
+        </table>
+    </div> -->
+
+    <div class="DSGrid4">
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Machine Learning</th>
+                <td><meter min="0" max="10" value="{{MLcount}}" id="MLparameter"></meter><br>{{MLcount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Deep Learning</th>
+                <td><meter min="0" max="10" value="{{PydeepLcount}}" id="DeepLparameter"></meter><br>{{PydeepLcount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Artificial Intelligence</th>
+                <td><meter min="0" max="10" value="{{AIcount}}" id="AIparameter"></meter><br>{{AIcount}} Admits</td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Data Science</th>
+                <td><meter min="0" max="10" value="{{DataSccount}}" id="DSparameter1"></meter><br>{{DataSccount}} Admits</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="lastDS">
+        <table cellspacing="0" border="1px solid black" cellpadding="10px">
+            <tr>
+                <th>Data Analysis</th>
+                <td><meter min="0" max="10" value="{{DataAncount}}" id="DAparameter"></meter><br>{{DataAncount}} Admits</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function updateMeterValue() {
+        document.getElementById('DSparameter1').value = {{ DataSccount }};
+        document.getElementById('MLparameter').value = {{ MLcount }};
+        document.getElementById('DeepLparameter').value = {{ PydeepLcount }};
+        document.getElementById('AIparameter').value = {{ AIcount }};
+        document.getElementById('DAparameter').value = {{ DataAncount }};
+
+        document.getElementById('AzureParameter').value = {{ Azurecount }};
+        document.getElementById('AWSparameter').value = {{ AWScount }};
+        document.getElementById('GCSparameter').value = {{ GCScount }};
+
+
+        document.getElementById('frontendParameter').value = {{ Frntcount }};
+        document.getElementById('MERNparameter').value = {{ MERNcount }};
+        document.getElementById('pythonfsParameter').value = {{ Pyfscount }};
+        document.getElementById('javafsParameter').value = {{ Jvfscount }};
+
+        document.getElementById('CParameter').value = {{ Ccount }};
+        document.getElementById('CplusParameter').value = {{ Cpluscount }};
+        document.getElementById('CshParameter').value = {{ Csharpcount }};
+        document.getElementById('RubyParameter').value = {{ Rubycount }};
+        document.getElementById('KotlinParameter').value = {{ Kotlincount }};
+        document.getElementById('GOParameter').value = {{ Golangcount }};
+        document.getElementById('phpParameter').value = {{ Phpcount }};
+        document.getElementById('pythonMeter').value = {{ Pyfscount }};
+        document.getElementById('RParameter').value = {{ Rcount }};
+        document.getElementById('TSParameter').value = {{ TScount }};
+        document.getElementById('JavaParameter').value = {{ Javacount }};
+        document.getElementById('HCJSParameter').value = {{ HCJcount }};
+    }
+
+    updateMeterValue();
+    </script>
+</body>
+</html>

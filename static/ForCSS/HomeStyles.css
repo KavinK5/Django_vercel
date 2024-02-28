@@ -1,0 +1,403 @@
+
+*
+{
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#courseID,#fieldID{
+            width: 110px;
+            padding: 3px;
+            font-size: 1em;
+}
+
+#top{
+    display: flex;
+    justify-content: center;
+    height: 88vh;
+}
+
+    .headR{
+         height: 90px;
+         background-color: lightslategray;
+        }
+
+        div .headR img
+        {
+            height: 80px;
+            width: 250px;
+            position: relative;
+            top:5px;
+            left:10px;
+            background-color: transparent;
+       }
+
+        div .headR nav
+        {
+            display: flex;
+            gap:5px;
+            position: absolute;
+            top:20px;
+            right: 0;
+        }
+
+        div .headR nav a
+        {
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+            font-size: 1.3em;
+            color:black;
+            background-color: lightslategray;
+        }
+
+        div .headR nav a:hover
+        {
+            transition: all 1s;
+            color:white;
+            background-color: rgb(100, 100, 100);
+        }
+
+        .WholeContent
+        {
+            margin-top: 40px;
+            border-radius: 25px;
+            width: 80%;
+        }
+
+        .content
+        {
+            border-radius: 25px;
+            display: flex;
+            height: 550px;
+            gap:5em;
+        }
+
+        .content img
+        {
+            height:490px;
+            width:480px;
+            margin: 30px 20px 0 50px;
+        }
+
+        .formFor
+        {
+            margin: 30px 30px 30px 0;
+            overflow: auto;
+            overflow-y: scroll;
+            padding-right: 20px;
+            padding: 15px;
+            width: 440px;
+
+        }
+
+        form
+        {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        label
+        {
+            font-weight: bold;
+        }
+
+        #Fname,#Fdadname,#spanID,#spanID1,#Fschname,#Fyr,#Fclgname,#Fdip,#Fcntct,#Fem
+        {
+            border-radius: 5px;
+            margin: 10px 0 15px 0;
+            width: 95%;
+            height: 20px;
+            font-size: 1em;
+            padding: 12px;
+            font-family: monospace;
+        }
+
+        #spanID
+        {
+            margin-top: -0px;
+            display: flex;
+            font-size: 1em;
+            flex-direction: column;
+            margin-bottom: 100px;
+        }
+
+        #spanID1
+        {
+            margin-top: 0;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 120px;
+        }
+
+        #Male,#Female,#others
+        {
+            margin: 0px 0 20px 30px;
+        }
+
+        .qualif
+        {
+            margin-top: 10px;
+            display: flex;
+            gap:0px;
+        }
+
+        #SSLC,#HSC,#Others,#Degree
+        {
+            font-size: 1em;
+            margin: 12px 0 15px 20px;
+        }
+
+        #degDetails
+        {
+            display: flex;
+            gap:3.2em;
+        }
+
+        #deptID,#degID
+        {
+            margin: 10px 0 20px 20px;
+            text-align: center;
+            width: 120px;
+            padding: 3px;
+            font-size: 1em;
+        }
+
+        #deptID
+        {
+            margin-left: 8px;
+            width: 150px;
+        }
+
+        #degID:hover,#deptID:hover
+        {
+            cursor: pointer;
+        }
+
+        #clgyr,#dipQualif,#moreclg,#degDetails,#schlDiv
+        {
+            display: none;
+        }
+
+        #Fcntct:valid,#Fname:valid,#Fem:valid,#Fyr:valid,#Fdip:valid,#Fclgname:valid,#Fdadname:valid,#Fschname:valid
+        {
+            box-shadow: -5px 5px 10px rgba(0,0,0,0.3);
+        }
+
+        #Fcntct:invalid
+        {
+           border-color: red;
+        }
+
+        .headR nav a{
+            padding: 15px;
+        }
+
+
+
+        .innerEnq
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap:1em;
+            margin-left: 30px;
+        }
+
+        ion-icon{
+            font-size: 1.7em;
+            position: absolute;
+            padding:5px ;
+            right: 20px;
+            top:30px;
+            color: rgb(96, 100, 70);
+            border: 3px solid rgb(96, 100, 70);
+            border-radius: 25px;
+        }
+
+        ion-icon:hover{
+            cursor: pointer;
+        }
+
+        @media(max-width:1125px)
+        {
+            .content
+            {
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .formFor
+            {
+                border: 3px solid cadetblue;
+                padding: 35px;
+                height: 400px;
+                margin-top: 5px;
+                margin-bottom: 100px;
+                width: 450px;
+                margin-left: 50px;
+            }
+
+    }
+
+    #Fcntct,#Fem,#Fyr,#Fdip,#Fclgname,#Fschname,#Fdadname,#Fname{
+        font-size:1.3em;
+    }
+
+
+
+    #regText1{
+        margin-bottom: 20px;
+        font-size: 1.25em;
+        font-weight: bold;
+        display:flex;
+        justify-content:center;
+    }
+
+    #regText1 span{
+        background-color:lightslategrey;
+        padding:5px 15px;
+        color:white;
+        border-radius:5px;
+    }
+
+    .btn1{
+        height: 40px;
+        width: 96%;
+        background-color:blue;
+        color:white;
+        cursor:pointer;
+        font-size:1.15em;
+        border-radius:5px;
+    }
+
+    .btn1:hover{
+        background-color:rgb(0,0,205);
+    }
+
+
+    @media(max-width:840px)
+    {
+
+        .content img
+        {
+            width: 450px;
+        }
+
+        .formFor
+        {
+            width: 440px;
+        }
+    }
+
+    @media(max-width:500px){
+        .content img{
+            width: 350px;
+            height: 350px;
+            margin-left:72px;
+        }
+
+        .formFor{
+            width: 350px;
+            height: 350px;
+            margin-left:72px;
+        }
+    }
+
+    #menuIcon{
+        display: none;
+    }
+
+
+    .modeOFF{
+        display: flex;
+        gap:1em;
+        margin-left: 30px;
+        margin-top: 10px;
+        flex-direction: column;
+    }
+
+    @media(max-width:500px){
+        .content img{
+            width: 350px;
+            height: 350px;
+            margin-left:72px;
+        }
+
+        .formFor{
+            width: 350px;
+            height: 350px;
+            margin-left:72px;
+        }
+    }
+
+    #menuIcon{
+        display: none;
+    }
+
+    .modeOFF{
+        display: flex;
+        gap:1em;
+        margin-left: 30px;
+        margin-top: 10px;
+        flex-direction: column;
+    }
+
+    @media (max-width:800px) {
+
+        div .headR nav
+        {
+            margin-top: -10px;
+            display: flex;
+            flex-direction: column;
+            gap:0px;
+            align-items: center;
+            position: relative;
+            background-color:rgb(96, 100, 70);
+        }
+
+        div .headR nav a
+        {
+            gap:10px;
+            color:white;
+            background-color: transparent;
+        }
+
+        div .headR nav a:hover
+        {
+            color:black;
+            background-color: transparent;
+        }
+
+        .content{
+            margin-top: 0px;
+        }
+
+        #menuIcon
+        {
+            display:block;
+        }
+
+        div .headR nav{
+            display: none;
+        }
+
+    }
+
+    @media(max-width:350px){
+        /* #menuIcon
+        {
+            display: none;
+        } */
+
+        div .headR nav{
+            display: flex;
+        }
+    }
+
+
+
+
+
+

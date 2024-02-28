@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'ForCSS/TableStyles.css' %}">
+    <style>
+        body::-webkit-scrollbar{
+            display:none;
+        }
+
+        body{
+            margin:0;
+            padding: 0;
+            margin-bottom:50px;
+        }
+
+        header{
+            background-color: lightslategray;
+        }
+
+        header img{
+            height:80px;
+            width:250px;
+            margin: 5px;
+        }
+
+        header div{
+            position: absolute;
+            right:20px;
+            top:30px;
+        }
+
+        header div a{
+            text-decoration: none;
+            color: rgb(229, 228, 226, 1);
+            font-weight: bold;
+            padding: 5px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border:2px solid #e5e4e2;
+        }
+
+        header div a:hover{
+            color: rgb(229, 228, 226, 0.9);
+            border:3px solid #e5e4e2;
+        }
+
+        @media (max-width:500px){
+            header img{
+                height: 60px;
+                width: 170px;
+            }
+
+            header div{
+                position: absolute;
+                right:5px;
+                top:30px;
+            }
+
+            header div a:hover{
+                color: rgb(229, 228, 226, 0.9);
+                border:2px solid #e5e4e2;
+            }
+
+            header div a{
+                font-weight: bold;
+                /* padding: 2px; */
+                font-size: 1em;
+                border-radius: 10px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                border:2px solid #e5e4e2;
+            }
+        }
+
+        @media (max-width:400px){
+            header div a{
+                /* font-weight: bold; */
+                /* padding: 2px; */
+                font-size: 0.85em;
+            }
+        }
+
+        .Grid1{
+            display: grid;
+            max-width: 900px;
+            padding: 10px;
+            grid-template-columns: 1fr 1fr 1fr;
+            margin: auto;
+            /* border: 2px solid black; */
+        }
+
+
+
+        table tr td img{
+            height: 25px;
+            width: 25px;
+            vertical-align: middle;
+        }
+
+        table tr td{
+            font-size: 1.15em;
+            padding: 16px 20px;
+            text-align: center;
+        }
+
+        table tr:nth-child(1) th{
+            font-size: 1.2em;
+            padding: 10px;
+            background-color: rgba(238, 230, 230, 0.81);
+            border-color:transparent;
+            border-bottom-color:#000 ;
+        }
+
+        .FWD{
+            justify-self: center;
+        }
+
+        .FWD table tr:nth-of-type(1) th{
+            padding: 20px 50px;
+        }
+
+        .BWD table tr:nth-of-type(1) th{
+            padding: 20px 50px;
+        }
+
+
+        .FWD  table tr td{
+            padding: 18px 20px;
+            font-size: 1.15em;
+        }
+
+        .BWD table tr:nth-child(2) td, .BWD table tr:nth-child(4) td{
+            padding:3px;
+        }
+
+        .BWD table tr:nth-child(2) td:nth-of-type(1), .BWD table tr:nth-child(4) td:nth-of-type(1){
+            border-right-color:transparent;
+        }
+
+        .BWD table tr:nth-child(2) td:nth-of-type(2), .BWD table tr:nth-child(4) td:nth-of-type(2){
+            border-left-color:transparent;
+        }
+
+        .BWD{
+            align-self: center;
+        }
+
+        .BWD table tr:nth-child(3) td:nth-child(1), .BWD table tr:nth-child(5) td:nth-child(1){
+            border-right-color:transparent;
+        }
+
+        .BWD table tr:nth-child(3) td:nth-child(2), .BWD table tr:nth-child(5) td:nth-child(2){
+            border-left-color:transparent;
+        }
+
+        .CloudDatabase{
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 4em;
+        }
+
+        .CloudDatabase table tr:nth-of-type(1) th{
+            padding:30px 60px;
+        }
+
+        .Database table tr:nth-of-type(1) th{
+            padding:30px 40px;
+        }
+
+        .Python-FS, .Java-FS, .MERN-FS{
+            padding: 20px;
+            max-width: 300px;
+            border: 1px solid #000;
+        }
+
+        .PythonFSHeader, .JavaFSHeader, .MERNFSHeader{
+            padding: 20px 50px;
+            font-size: 1.3em;
+            text-align: center;
+            font-weight: bold;
+            background-color: #eee6e6cf;
+        }
+
+        .Python-FS img, .Java-FS img, .MERN-FS img{
+            height: 40px;
+            width: 40px;
+            mix-blend-mode: color-burn;
+        }
+
+        .icon-section1, .icon-section2, .icon-section3{
+            margin-top: 40px;
+            display: flex;
+            gap:2em;
+            justify-content: center;
+        }
+
+        .AllFS{
+            display: flex;
+            margin-top: 50px;
+            gap: 2em;
+            justify-content: center;
+        }
+
+        .MERNabbr{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap:1em;
+        }
+
+        .MERN-FS .icon-section2 div:nth-child(2) img{
+            width: 60px;
+        }
+
+        @media (max-width:900px){
+            .Grid1{
+                max-width: 800px;
+                padding: 10px;
+            }
+            table tr:nth-child(1) th{
+                font-size: 1.2em;
+                /* padding: .5px; */
+            }
+
+            table tr td{
+                font-size:1.1em;
+                padding: 10px 14px;
+            }
+
+            .FWD  table tr td{
+                padding: 12px 20px;
+            }
+
+            .AllFS{
+                display: flex;
+                flex-direction: column;
+                gap: 2em;
+                align-items: center;
+            }
+        }
+
+        @media (max-width:800px){
+            .Grid1{
+                grid-template-columns: 1fr;
+                gap: 2em;
+            }
+
+            .PL, .BWD{
+                justify-self: center;
+            }
+
+            .PL table tr:nth-child(1) th{
+                padding:20px;
+            }
+
+            .FWD table tr:nth-child(1) th{
+                padding: 30px 70px;
+            }
+
+            .PL table tr td, .FWD table tr td, .BWD table tr td{
+                padding: 20px 40px;
+            }
+
+            .BWD table tr td{
+                padding: 20px 25px;
+            }
+
+            .FWD table tr:nth-child(1) th{
+                padding: 40px 80px;
+            }
+
+            table tr:nth-child(1) th{
+                font-size: 1.2em;
+            }
+
+            .FWD table tr td{
+                font-size:1.1em;
+                padding: 10px 14px;
+            }
+
+            .BWD table tr:nth-of-type(1) th{
+                padding: 15px 30px;
+            }
+
+            .CloudDatabase{
+                flex-direction: column;
+                align-items: center;
+                gap:2em;
+            }
+
+            .Database table tr:nth-of-type(1) th, .Cloud table tr:nth-of-type(1) th{
+                padding:20px;
+            }
+
+
+        }
+
+        @media (max-width:400px){
+            .PL table tr:nth-child(1) th{
+                padding:10px;
+                font-size: 1.1em;
+            }
+
+            .PL table tr td{
+                padding:15px 20px;
+                font-size: 1em;
+            }
+
+            .FWD table tr:nth-child(1) th{
+                padding: 20px 80px;
+                font-size: 1.1em;
+            }
+
+            .FWD table tr td{
+                padding:15px 15px;
+                font-size: 1.057m;
+            }
+
+            .BWD table tr:nth-child(1) th{
+                padding: 20px 80px;
+                font-size: 1.1em;
+            }
+
+            .BWD table tr td{
+                padding:15px 20px;
+                font-size: 1.02em;
+            }
+
+            .Cloud table tr:nth-of-type(1) th, .Database table tr:nth-of-type(1) th{
+                /* padding:15px; */
+                font-size: 1.1em;
+            }
+
+            .Database table tr:nth-of-type(1) th{
+                padding: 25px 10px;
+            }
+
+            .Cloud table tr td{
+                font-size: 0.98em;
+                padding: 15px;
+            }
+
+            .Database table tr td{
+                font-size: 0.98em;
+                padding: 10px;
+            }
+
+            .Python-FS, .Java-FS, .MERN-FS{
+                padding: 10px;
+                max-width: 300px;
+            }
+
+            .PythonFSHeader, .JavaFSHeader, .MERNFSHeader{
+                padding: 10px 30px;
+                font-size: 1.15em;
+            }
+        }
+    </style>
+</head>
+<body>
+<!--<div class="headR" style="background-color:lightslategray;padding-bottom:10px;">-->
+<!--        <img src="{% static 'ForIMAGES/elysium.png' %}">-->
+<!--        <a href="{% url 'Form1' %}" style="position:absolute;right:10px;top:25px;text-decoration:none;font-weight:bold;border-radius:10px;font-size:1.1em;color:black;border:2px solid black;padding:5px;display:none;" class="BackForm">BackToForm</a>-->
+<!--        <a href="{% url 'stat' %}" style="position:absolute;right:30px;top:25px;text-decoration:none;font-weight:bold;border-radius:10px;font-size:1.1em;color:#e5e4e2;border:2px solid #e5e4e2;padding:5px;">CourseAdmits</a>-->
+<!--        <a href="{% url 'stat1' %}" style="display:none;position:absolute;right:350px;top:25px;text-decoration:none;font-weight:bold;border-radius:10px;font-size:1.1em;color:#e5e4e2;border:2px solid #e5e4e2;padding:5px;">CourseAdmits1</a>-->
+<!--</div>-->
+
+<!--    <div id="text">-->
+<!--        <h3>C</h3><h3>o</h3><h3>u</h3><h3>r</h3><h3>s</h3><h3>e</h3><h3>s</h3><h3 style="color:transparent;">_</h3>-->
+<!--        <h3>O</h3><h3>f</h3><h3>f</h3><h3>e</h3><h3>r</h3><h3>e</h3><h3>d.</h3><h3>.</h3>-->
+<!--    </div>-->
+
+<header>
+        <img src="{% static 'ForIMAGES/elysium.png' %}" alt="">
+
+        <div>
+            <a href="{% url 'stat' %}">CourseAdmits</a>
+        </div>
+    </header>
+
+<div class="Grid1">
+        <div class="PL">
+            <table border="1px solid black" cellspacing = "0">
+                <tr>
+                    <th colspan="2">Programming<br>Languages</th>
+                </tr>
+
+                <tr>
+                    <td>C<img src="{% static 'ForIMAGES/c.png' %}" ></td>
+                    <td>C++<img src="{% static 'ForIMAGES/c++.png' %}" ></td>
+                </tr>
+                <tr>
+                    <td>C Sharp<img src="{% static 'ForIMAGES/csharp.png' %}" ></td>
+                    <td>Python<img src="{% static 'ForIMAGES/python.png' %}" ></td>
+                </tr>
+                <tr>
+                    <td>Java<img src="{% static 'ForIMAGES/java.png' %}" ></td>
+                    <td>Ruby<img src="{% static 'ForIMAGES/ruby.png' %}" ></td>
+                </tr>
+                <tr>
+                    <td>TypeScript<img src="{% static 'ForIMAGES/typescript.png' %}" ></td>
+                    <td>R<img src="{% static 'ForIMAGES/r.png' %}" ></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>HTML5<img src="{% static 'ForIMAGES/html.png' %}" ></div>
+                        <div>CSS3<img src="{% static 'ForIMAGES/css.png' %}" ></div>
+                        <div>JavaScript<img src="{% static 'ForIMAGES/js.png' %}" ></div>
+                    </td>
+                    <td>Go<img src="{% static 'ForIMAGES/golang.png' %}" ></td>
+                </tr>
+                <tr>
+                    <td>php<img src="{% static 'ForIMAGES/php.png' %}" ></td>
+                    <td>Kotlin<img src="{% static 'ForIMAGES/kotlin.png' %}" ></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="FWD">
+            <table border="1px solid black" cellspacing = "0">
+                <tr>
+                    <th colspan="2">Frontend<br>Courses</th>
+                </tr>
+
+                <tr>
+                    <td>HTML5<img src="{% static 'ForIMAGES/html.png' %}" ></td>
+                </tr>
+
+                <tr>
+                    <td>CSS3<img src="{% static 'ForIMAGES/css.png' %}" ></td>
+                </tr>
+
+                <tr>
+                    <td>JavaScript<img src="{% static 'ForIMAGES/js.png' %}" ></td>
+                </tr>
+
+                <tr>
+                    <td>nodeJS<img src="{% static 'ForIMAGES/nodeJS.png' %}" ></td>
+                </tr>
+
+                <tr>
+                    <td>React<img src="{% static 'ForIMAGES/react.png' %}" ></td>
+                </tr>
+
+                <tr>
+                    <td>MongoDB<img src="{% static 'ForIMAGES/mongoDB.png' %}" ></td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div class="BWD">
+            <table border="1px solid black" cellspacing = "0">
+                <tr>
+                    <th colspan="2">Backend<br>Courses</th>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td><b>Language:</b> <div>Python</div> <img src="{% static 'ForIMAGES/python.png' %}" ></td>
+                    <td><b>Framework:</b> <div>Django</div> <img src="{% static 'ForIMAGES/django.png' %}" ></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+
+                    <tr>
+                        <td><b>Language:</b> <div>Java</div> <img src="{% static 'ForIMAGES/java.png' %}" ></td>
+                        <td><b>Framework:</b> <div>Spring</div> <img src="{% static 'ForIMAGES/spring.png' %}" ></td>
+                    </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <div class="CloudDatabase">
+        <div class="Cloud">
+            <table border="1px solid black" cellspacing = "0">
+                <tr>
+                    <th colspan="2">Cloud Computing</th>
+                </tr>
+
+                <tr>
+                    <td>Structured Query Language<img src="{% static 'ForIMAGES/sql-server.png' %}" ></td>
+                </tr>
+
+                <tr>
+                    <td>MongoDB<img src="{% static 'ForIMAGES/mongoDB.png' %}" ></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="Database">
+            <table border="1px solid black" cellspacing = "0">
+                <table border="1px solid black" cellspacing = "0">
+                    <tr>
+                        <th colspan="2">Database Management System</th>
+                    </tr>
+
+                    <tr>
+                        <td>Microsoft Azure<img src="{% static 'ForIMAGES/azure.png' %}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Amazon Web Services<img src="{% static 'ForIMAGES/aws.png' %}"></td>
+                    </tr>
+                </table>
+            </table>
+        </div>
+    </div>
+
+<div class="AllFS">
+    <div class="Python-FS">
+        <div class="PythonFSHeader">
+            Python Full-Stack
+        </div>
+
+        <div class="icon-section1">
+            <div><img src="{% static 'ForIMAGES/html.png' %}"  alt=""></div>
+            <div><img src="{% static 'ForIMAGES/css.png' %}"  alt=""></div>
+            <div><img src="{% static 'ForIMAGES/js.png' %}"  alt=""></div>
+        </div>
+
+        <div class="icon-section2">
+            <div><img src="{% static 'ForIMAGES/python.png' %}"  alt=""></div>
+            <div><img src="{% static 'ForIMAGES/django.png' %}"  alt=""></div>
+        </div>
+
+        <div class="icon-section3">
+            <div><img src="{% static 'ForIMAGES/sql-server.png' %}"  alt=""></div>
+            <div><img src="{% static 'ForIMAGES/mongoDB.png' %}"  alt=""></div>
+        </div>
+    </div>
+
+    <div class="Java-FS">
+        <div class="JavaFSHeader">
+            Java Full-Stack
+        </div>
+
+        <div class="icon-section1">
+            <div><img src="{% static 'ForIMAGES/html.png' %}"  alt=""></div>
+            <div><img src="{% static 'ForIMAGES/css.png' %}"  alt=""></div>
+            <div><img src="{% static 'ForIMAGES/js.png' %}"  alt=""></div>
+        </div>
+
+        <div class="icon-section2">
+            <div><img src="{% static 'ForIMAGES/java.png' %}"  alt=""></div>
+            <div><img src="{% static 'ForIMAGES/spring.png' %}"  alt=""></div>
+        </div>
+
+        <div class="icon-section3">
+            <div><img src="{% static 'ForIMAGES/sql-server.png' %}"  alt=""></div>
+            <div><img src="{% static 'ForIMAGES/mongoDB.png' %}"  alt=""></div>
+        </div>
+    </div>
+
+    <div class="MERN-FS">
+        <div class="MERNFSHeader">
+            MERN Stack
+        </div>
+
+        <div class="icon-section1">
+            <div><img src="{% static 'ForIMAGES/html.png' %}"  alt=""></div>
+            <div><img src="{% static 'ForIMAGES/css.png' %}"  alt=""></div>
+            <div><img src="{% static 'ForIMAGES/js.png' %}"  alt=""></div>
+        </div>
+
+        <div class="icon-section2">
+            <div><img src="{% static 'ForIMAGES/mongoDB.png' %}"  alt=""></div>
+            <div>ExpressJS</div>
+        </div>
+
+        <div class="icon-section3">
+            <div><img src="{% static 'ForIMAGES/react.png' %}"  alt=""></div>
+            <div><img src="{% static 'ForIMAGES/nodeJS.png' %}"  alt=""></div>
+        </div>
+
+</div>
+
+</div>
+
+
+<script>
+    const textContainer = document.getElementById("text");
+const spans = textContainer.querySelectorAll("h3");
+let index = 0;
+
+function showNextLetter() {
+    if (index < spans.length) {
+        spans[index].style.display = "block";
+        index++;
+        setTimeout(showNextLetter, 200);
+    }
+
+}
+
+showNextLetter();
+
+</script>
+</body>
+</body>
+</html>

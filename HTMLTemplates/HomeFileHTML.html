@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <style>
+        *{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* background-color:rgb(240,255,255); */
+            background-color:rgb(238, 249, 249);
+        }
+
+
+
+        /* @media (width >= 900px){
+            .outerGrid{
+                margin: 10px auto;
+        }
+    } */
+
+
+/*
+        @media (width < 900px){
+
+            .one div:hover{
+                transition: all 0.2s linear;
+                background-color: cadetblue;
+                padding: 10px 0;
+            }
+
+            .one{
+                gap: .5em;
+            }
+
+            .topS2{
+                margin-top: 30px;
+            }
+
+
+            .one div a{
+                font-size: 0.85em;
+            }
+        } */
+
+        @media (width < 600px){
+            .one div a{
+                font-size: 1.2em;
+                background-color: transparent;
+            }
+    }
+
+        .outerGrid{
+            margin: 20px auto;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 2em;
+            display: grid;
+            /* border:2px solid black; */
+            max-width: 1000px;
+            padding: 10px;
+        }
+
+
+        .forFORM{
+            height: 490px;
+            max-width:470px;
+            /* border: 1px solid black; */
+            overflow: auto;
+        }
+        .forIMG img{
+            height:490px;
+            max-width:480px;
+            align-self: center;
+        }
+
+        .Registration-Form-Header{
+            display: flex;
+            justify-content: center;
+        }
+
+        .Registration-Form-Header div{
+            padding: 4px 10px;
+            font-size: 1.25em;
+            margin-bottom: 10px;
+            margin-top:5px;
+            display: inline;
+            font-weight: bold;
+            color: #fff;
+            border-radius: 5px;
+            background-color: lightslategray;
+        }
+
+        .forWidth100pct{
+            margin-top: 20px;
+            padding-left:20px;
+            padding-right: 30px;
+        }
+
+        .forWidth100pct div label, .Gender label:nth-child(1), .Qualification label:nth-child(1), .ModeOfClass label:nth-child(1), .courseDIV label:nth-child(1), .fieldDIV label:nth-child(1){
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        .forWidth100pct input{
+            height: 35px;
+            width: 100%;
+            font-size: 1.2em;
+            margin-top: 10px;
+            background-color: white;
+            border-radius: 5px;
+            /* font-weight: bold; */
+            padding-left:15px;
+            font-family:monospace;
+        }
+
+        #dipQualif{
+            margin: 20px;
+            padding-left:10px;
+            padding-right: 20px;
+            /* width: 100% ; */
+        }
+
+        input[type="text"]{
+            border: 1px solid #000;
+        }
+
+        #dipQualif input{
+            font-size: 1em;
+            border: 1px solid #000;
+            border-radius: 5px;
+            width: 100%;
+            height: 35px;
+            background-color: #fff;
+            padding-left: 15px;
+        }
+
+        .paddingALL{
+            padding:0 20px;
+
+        }
+
+        .Gender{
+            margin-top: 15px;
+        }
+
+        .Qualification{
+            margin-top: 35px;
+        }
+
+        .ModeOfClass{
+            margin-top: 20px;
+        }
+
+        .Gender div, .Qualification div, .ModeOfClass div{
+            font-weight: bold;
+            margin:20px;
+        }
+
+        .degreedeptLabel{
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1em;
+            margin-bottom: 10px;
+            display:flex;
+            margin-left: 30px;
+            /* justify-content:center; */
+            gap:7em;
+        }
+
+        .degreedeptSelect{
+            display: flex;
+
+            gap:6em;
+            margin-left: 50px;
+            /* justify-content: center; */
+        }
+
+        .degreedeptSelect select{
+            font-size: 1em;
+            width:120px;
+            height: 30px;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid #000;
+        }
+
+        .degreedeptSelect select:nth-child(2){
+            width: 150px;
+            border: 1px solid #000;
+        }
+
+        .courseDIV, .fieldDIV{
+            margin: 20px;
+        }
+
+        .courseDIV select, .fieldDIV select{
+            font-size: 1em;
+            width:250px;
+            border: 1px solid #000;
+            text-align: center;
+            padding: 2px 10px;
+            margin: 5px 10px;
+            border-radius: 5px;
+            height: 35px;
+            cursor: pointer;
+        }
+
+        @media (max-width:900px){
+            .forIMG img{
+                width:420px;
+            }
+        }
+
+        @media (max-width:850px){
+            .forIMG img{
+                width:400px;
+            }
+
+            .forWidth100pct div label{
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width:800px){
+            body{
+                margin-bottom: 3em;
+            }
+            .outerGrid{
+                grid-template-columns: repeat(1, 1fr);
+                row-gap: 2em;
+                max-width: 400px;
+                /* place-items:center; */
+            }
+
+            .forFORM{
+                border: 1px solid black;
+                height: 400px;
+                max-width:400px;
+        }
+        }
+
+        input[type="submit"]{
+            background-color: rgb(60, 60, 252);
+            font-weight: bold;
+            color: #fff;
+            font-size: 1.2em;
+            width: 100%;
+            border: 2px solid blue;
+            cursor: pointer;
+            height: 40px;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover{
+            background-color: blue;
+        }
+
+        #clgyr, #schlDiv ,#degDetails ,#dipQualif ,#moreclg{
+            display: none;
+        }
+
+        input[type="text"]:valid{
+            box-shadow: -5px 5px 10px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width:500px){
+            .outerGrid{
+                max-width: 500px;
+                place-items:center;
+            }
+
+            .forIMG img{
+                width:350px;
+                height: 400px;
+                align-self: center;
+            }
+
+            .forFORM {
+                width:350px;
+            }
+        }
+
+        @media (max-width:400px){
+            .outerGrid{
+                max-width: 300px;
+            }
+            .forIMG img{
+                width:300px;
+                height: 400px;
+                align-self: center;
+            }
+
+            .forFORM {
+                width:300px;
+            }
+
+            .Registration-Form-Header div{
+                padding: 4px 5px;
+                font-size: 1em;
+                margin-bottom: 10px;
+                margin-top:5px;
+            }
+
+            .forWidth100pct div label, .Gender label:nth-child(1), .Qualification label:nth-child(1), .ModeOfClass label:nth-child(1), .courseDIV label:nth-child(1), .fieldDIV label:nth-child(1){
+                font-size: 0.96em;
+            }
+
+            .forWidth100pct input{
+                height: 25px;
+                width: 100%;
+                font-size: 1.15em;
+            }
+
+            .Gender div label, .Qualification div label, .ModeOfClass div label{
+                 font-size: 0.95em;
+            }
+
+            .degreedeptSelect select{
+                font-size: 0.9em;
+                width:100px;
+                height: 20px;
+            }
+
+            .courseDIV select, .fieldDIV select{
+                font-size: 0.9em;
+            }
+
+            .courseDIV div:nth-child(2) div{
+                    font-size:0.9em;
+            }
+        }
+
+        @media (max-width:330px){
+            .outerGrid{
+                max-width: 280px;
+            }
+            .forIMG img{
+                width:280px;
+                height: 350px;
+                align-self: center;
+            }
+
+            .forFORM {
+                width:270px;
+            }
+
+            .Registration-Form-Header div{
+                padding: 4px 5px;
+                font-size: 0.95em;
+                margin-bottom: 10px;
+                margin-top:5px;
+            }
+
+            .forWidth100pct div label, .Gender label:nth-child(1), .Qualification label:nth-child(1), .ModeOfClass label:nth-child(1), .courseDIV label:nth-child(1), .fieldDIV label:nth-child(1){
+                font-size: 0.92em;
+            }
+
+            .forWidth100pct input{
+                height: 25px;
+                width: 100%;
+                font-size: 1.1em;
+            }
+
+            .Gender div label, .Qualification div label, .ModeOfClass div label{
+                 font-size: 0.9em;
+            }
+
+            .degreedeptSelect select{
+                font-size: 0.85em;
+                width:100px;
+                height: 15px;
+            }
+
+            .courseDIV select, .fieldDIV select{
+                font-size: 0.85em;
+                width: 200px;
+            }
+
+            .courseDIV div:nth-child(2) div{
+                    font-size:0.85em;
+            }
+        }
+        .one{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .one div{
+            padding: 15px;
+            text-align: center;
+        }
+
+        .one div a{
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #000;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        /* .one div:hover{
+            background-color: aqua;
+            color:#fff;
+        } */
+
+        @media (min-width:900px){
+            .one{
+                display: flex;
+                flex-direction: row;
+                position: absolute;
+                right:10px;
+                top:30px;
+            }
+
+            .one div a:hover{
+                padding: 10px;
+                color:#000;
+                background-color: white;
+            }
+
+            .one div{
+                background-color: cadetblue;
+            }
+
+        }
+
+
+        body{
+            margin: 0;
+        }
+
+        .elysiumLOGO{
+            margin: 0;
+            padding: 0;
+            background-color: cadetblue;
+        }
+
+        .elysiumLOGO img{
+            margin: 5px;
+            height: 80px;
+            width: 250px;
+            mix-blend-mode: color-burn;
+        }
+
+        @media (max-width:500px){
+            .one div a{
+                font-size: 1.1em;
+            }
+
+            .elysiumLOGO img{
+                height : 70px;
+                width: 220px;
+            }
+        }
+
+        @media (max-width:450px){
+            .degreedeptSelect{
+            display: flex;
+            gap:3em;
+            margin-left: 40px;
+        }
+
+        .degreedeptSelect select{
+            font-size: 1em;
+            width:100px;
+            height: 30px;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid #000;
+        }
+
+        .degreedeptSelect select:nth-child(2){
+            width:120px;
+        }
+       }
+
+         @media (max-width:350px){
+            .degreedeptSelect{
+                display: flex;
+                gap:2em;
+                margin-left: 20px;
+                }
+
+            .degreedeptLabel{
+                margin-left: 25px;
+                font-size: 0.9em;
+                margin-top: 15px;
+                font-weight: bold;
+                margin-bottom: 10px;
+                display:flex;
+                /* justify-content:center; */
+                gap:7em;
+            }
+          }
+
+        @media (max-width:900px){
+            .degreedeptSelect{
+            gap:2em;
+                margin-left: 17px;
+               }
+        }
+    </style>
+</head>
+<body>
+    <div class="elysiumLOGO">
+        <img src="{% static 'ForIMAGES/elysium.png' %}">
+    </div>
+
+    <div class="one">
+        <div><a href="https://elysiumacademy.org/">About</a></div>
+        <div><a href="https://elysiumacademy.org/it-corporate-training-service-2/">Services</a></div>
+        <div><a href="{% url 'courseTable' %}">Courses</a></div>
+        <div><a href="https://elysiumacademy.org/coimbatore-training-center/">Contact</a></div>
+    </div>
+
+
+    <div class="outerGrid">
+        <div class="forIMG">
+            <img src="{% static 'ForIMAGES/quotes1.jpg' %}">
+        </div>
+
+        <div class="forFORM">
+            <div class="Registration-Form-Header">
+                <div>Registration Form</div>
+            </div>
+
+            <form method="POST">
+                {% csrf_token %}
+                <div class="forWidth100pct">
+                    <div><label for="Fname">Name:</label></div>
+                    <div><input required type="text" id="Fname" name="Cname"></div>
+                </div>
+
+                <div class="forWidth100pct">
+                    <div><label for="Fdadname">Father's Name:</label></div>
+                    <div><input required type="text" id="Fdadname" name="Cdadname"></div>
+                </div>
+
+                <div class="paddingALL Gender">
+                    <label>Gender: </label>
+
+                    <div>
+                        <input required  autocomplete="off"  type="radio" name="gen" id="Male" value="Male">
+                        <label for="Male">Male</label>
+                    </div>
+
+                    <div>
+                        <input required  autocomplete="off"  type="radio" name="gen" id="Female" value="Female">
+                        <label for="Female">Female</label>
+                    </div>
+
+                    <div>
+                        <input required  autocomplete="off"  type="radio" name="gen" id="Others" value="Others">
+                        <label for="others">Others</label>
+                    </div>
+                </div>
+
+                <div class="paddingALL Qualification">
+                    <label>Qualification: </label>
+
+                    <div>
+                        <input required  autocomplete="off"  type="radio" name="qua" id="SSLC" value="SSLC" onclick="toggleAct('SSLC')" >
+                        <label for="SSLC">SSLC</label>
+                    </div>
+
+                    <div>
+                        <input required  autocomplete="off"  type="radio" name="qua" id="HSC" value="HSC" onclick="toggleAct('HSC')">
+                        <label for="HSC">HSC</label>
+                    </div>
+
+                    <div>
+                        <input required  autocomplete="off"  type="radio" name="qua" id="Degree" value="Degree" onclick="toggleAct('Degree')">
+                        <label for="Degree">Degree</label>
+                    </div>
+
+                    <div>
+                        <input required  autocomplete="off"  type="radio" name="qua" id="Others" value="Others" onclick="toggleAct('Others')">
+                        <label for="Others">Others</label>
+                    </div>
+                </div>
+
+                <div class="forWidth100pct" id="schlDiv">
+                    <div><label for="Fschname">School Name:</label></div>
+                    <div><input  type="text" id="Fschname" name="Cschname"></div>
+                </div>
+
+                <div id="degDetails">
+                    <div class="degreedeptLabel">
+                        <label for="degID">Degree</label>
+                        <label for="deptID">Department</label>
+                    </div>
+
+                    <div class="degreedeptSelect">
+                        <select  id="degID">
+                            <option value="">Degree?</option>
+                        </select>
+
+
+                        <select   id="deptID">
+                            <option value="">Department?</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="dipQualif">
+                    <input type="text"  id="Fdip" name="Cdip" placeholder="Mention the Diploma Qualification">
+                </div>
+
+                <div class="forWidth100pct" id="moreclg">
+                    <div><label for="Fclgname">Institution:</label></div>
+                    <div><input  type="text" id="Fclgname" name="Cclgname"></div>
+                </div>
+
+                <div class="forWidth100pct">
+                    <div><label for="Fyr">Year Of Passed Out:</label></div>
+                    <div><input required type="text" id="Fyr" name="Cyr" pattern="20[012]{1}[0-9]{1}"></div>
+                </div>
+
+                <div class="forWidth100pct">
+                    <div><label for="Fem">Email Address:</label></div>
+                    <div><input required type="text" id="Fem" name="Cem" placeholder="domain112@-----" pattern="([0-9a-zA-Z\.?]+)@([a-z\.]+)"></div>
+                </div>
+
+                <div class="forWidth100pct">
+                    <div><label for="Fcntct">Mobile Number:</label></div>
+                    <div><input required type="text" inputmode="numeric" placeholder="xxxxxxxxxx" pattern="[1-9]{1}[0-9]{2}[0-9]{3}[0-9]{4}" id="Fcntct" name="Ccntct"></div>
+                </div>
+
+                <div class="fieldDIV">
+                    <div><label for="fieldID">Field:</label></div>
+                    <div>
+                        <select required id="fieldID">
+                            <option value="">Field?</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="courseDIV">
+                    <div><label for="courseID">Course:</label></div>
+                    <div>
+                        <select required id="courseID">
+                            <option value=""></option>
+                        </select>
+                        <div>Click Courses NAV to get detailed decription</div>
+                    </div>
+                </div>
+
+                <div class="paddingALL ModeOfClass">
+                    <label>Prefered mode of class: </label>
+
+                    <div>
+                        <input required  autocomplete="off"  type="radio" value="Online" name="q21" id="Online">
+                        <label for="Online">Online</label>
+                    </div>
+
+                    <div>
+                        <input required  autocomplete="off"  type="radio" name="q21" id="Offline" value="Offline">
+                        <label for="Offline">Offline</label>
+                    </div>
+
+                    <div>
+                        <input type="submit" class="btn1" value="Submit">
+                    </div>
+
+
+                    <div style="display:none">
+                        <input type="text" id='radValGENDER' name="FetchGender">
+                        <input type="text" id='radValQUALIFICATION' name="FetchQualification">
+                        <input type="text" id='radValMODE' name="FetchMode">
+                        <input type="text" id='radValDEG' name="FetchDegree">
+                        <input type="text" id='radValDEPT' name="FetchDept">
+                        <input type="text" id='radValFIELD' name="FetchField">
+                        <input type="text" id='radValCOURSE' name="FetchCourse">
+            </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('deptID').addEventListener('change',slctFnc);
+        function slctFnc(){
+            try7.value = this.value;
+        }
+
+
+
+        let degVar = ['M.E','M.Tech','M.Sc','M.A','M.Com','B.E','B.Tech','B.Sc','B.A','B.Com'];
+
+        let deptEngineering = [' Civil Engineering', 'Aeronautical Engineering', 'Automobile Engineering', 'Bioinformatics', 'Biomedical Engineering', 'Computer Science and Engineering', 'Electrical and Electronics Engineering', 'Electronics and Communication Engineering', 'Mechanical Engineering', 'Mechatronics Engineering']
+        let deptTech = ['Artificial Intelligence and Data Science', 'Biotechnology', 'Chemical Engineering', 'Fashion Technology', 'Information Technology']
+        let deptScience = ['Biochemistry', 'Biology', 'Biotechnology', 'Botony', 'Chemistry', 'Computer Science', 'Data Science', 'Forensic Sciences', 'Information Technology', 'Mathematics', 'Microbiology', 'Physics', 'Statistics', 'Zoology']
+        let deptArts = ['Economics', 'English', 'French', 'German', 'History', 'Philosophy', 'Political Science', 'Psychology']
+        let deptCmrs = ['Accountancy', 'Accounting and Finance', 'Banking and Finance', 'Computer Science', 'Economics', 'Finance', 'Marketing']
+
+        let Slct1 = document.getElementById('degID');
+        let Slct2 = document.getElementById('deptID');
+
+        degVar.forEach(function addDegree(item){
+            let option = document.createElement('option');
+            option.text = item;
+            option.value = item;
+            Slct1.appendChild(option);
+        });
+
+        Slct1.onchange = function(){
+            Slct2.innerHTML = '<option></option>';
+            if (this.value == 'B.E' || this.value == 'M.E'){
+                addToSlct2(deptEngineering);
+            }
+
+            if (this.value == 'B.Tech' || this.value == 'M.Tech'){
+                addToSlct2(deptTech);
+            }
+
+            if (this.value == 'B.Sc' || this.value == 'M.Sc'){
+                addToSlct2(deptScience);
+            }
+
+            if (this.value == 'B.Com' || this.value == 'M.Com'){
+                addToSlct2(deptCmrs);
+            }
+
+            if (this.value == 'B.A' || this.value == 'M.A'){
+                addToSlct2(deptArts);
+            }
+        }
+
+        function addToSlct2(arr){
+            arr.forEach(function (item){
+                let option = document.createElement('option');
+                option.text = item;
+                option.value = item;
+                Slct2.appendChild(option);
+            })
+        }
+
+
+        let fieldVar = [
+        'Programming Languages',
+        'Web Development',
+        'Data Science',
+        'Cloud Computing'
+      ];
+
+      let coursePL = [
+        'C',
+        'C++',
+        'C Sharp',
+        'Python',
+        'Java',
+        'HTML,CSS,JS',
+        'TypeScript',
+        'R',
+        'php',
+        'Ruby',
+        'Kotlin',
+        'Golang'
+      ];
+
+      let courseWD = [
+        'Frontend Web Development',
+        'MERN Stack',
+        'Python Full Stack Web Development',
+        'Java Full Stack Web Development'
+      ];
+
+      let courseDS = ['Python Data Science','Python Data Analysis','Artificial Intelligence','Machine Learning','Deep Learning'];
+
+      let courseCC = ['Microsoft Azure', 'Amazon Web Services','Google Cloud Services'];
+
+      let slTag1 = document.getElementById('fieldID');
+      let slTag2 = document.getElementById('courseID');
+
+      fieldVar.forEach(function addFields(item) {
+        let option = document.createElement('option');
+        option.text = item;
+        option.value = item;
+        slTag1.appendChild(option);
+      });
+
+      slTag1.onchange = function () {
+        slTag2.innerHTML = '<option></option>';
+        if (this.value == 'Programming Languages') {
+          addToSlTag2FC(coursePL);
+        }
+
+        if (this.value == 'Web Development') {
+          addToSlTag2FC(courseWD);
+        }
+
+        if (this.value == 'Data Science') {
+          addToSlTag2FC(courseDS);
+        }
+
+        if (this.value == 'Cloud Computing') {
+          addToSlTag2FC(courseCC);
+        }
+      };
+
+      function addToSlTag2FC(arr) {
+        arr.forEach(function (item) {
+          let option = document.createElement('option');
+          option.text = item;
+          option.value = item;
+          slTag2.appendChild(option);
+        });
+      }
+
+      function toggleAct(parameter1){
+            // document.getElementById('schlDiv').style.display = 'none';
+            // document.getElementById('degDetails').style.display = 'none';
+            // document.getElementById('moreclg').style.display = 'none';
+            // document.getElementById('dipQualif').style.display = 'none';
+            // document.getElementById('clgyr').style.display = 'none';
+
+            if (parameter1 === 'SSLC' || parameter1 === 'HSC'){
+                document.getElementById('schlDiv').style.display = 'block';
+                document.getElementById('moreclg').style.display = 'none';
+                document.getElementById('clgyr').style.display = 'block';
+            }
+
+            if (parameter1 === 'Degree'){
+                document.getElementById('schlDiv').style.display = 'none';
+                document.getElementById('degDetails').style.display = 'block';
+                document.getElementById('moreclg').style.display = 'block';
+                document.getElementById('clgyr').style.display = 'block';
+            }
+
+            if (parameter1 === 'Others'){
+                document.getElementById('schlDiv').style.display = 'none';
+                document.getElementById('degDetails').style.display = 'none';
+                document.getElementById('moreclg').style.display = 'block';
+                document.getElementById('dipQualif').style.display = 'block';
+                document.getElementById('clgyr').style.display = 'block';
+            }
+        }
+
+
+        var rd1 = document.querySelectorAll("input[name = 'gen']");
+          var txt1 = document.getElementById('radValGENDER');
+
+          let func1 = () => {
+            varStore = document.querySelector("input[name = 'gen']:checked").value;
+            txt1.value = varStore;
+          }
+
+          rd1.forEach(itr => {
+            itr.addEventListener('change',func1)
+          })
+
+
+          var rd2 = document.querySelectorAll("input[name = 'qua']");
+          var txt2 = document.getElementById('radValQUALIFICATION');
+
+          let func2 = () => {
+            varStore2 = document.querySelector("input[name = 'qua']:checked").value;
+            txt2.value = varStore2;
+          }
+
+          rd2.forEach(itr => {
+            itr.addEventListener('change',func2)
+          })
+
+
+          var rd3 = document.querySelectorAll("input[name = 'q21']");
+          var txt3 = document.getElementById('radValMODE');
+
+          let func3 = () => {
+            varStore3 = document.querySelector("input[name = 'q21']:checked").value;
+            txt3.value = varStore3;
+          }
+
+          rd3.forEach(itr => {
+            itr.addEventListener('change',func3)
+          })
+
+
+
+          document.getElementById('degID').addEventListener('change',fnc11)
+
+        function fnc11(){
+          document.getElementById('radValDEG').value = this.value;
+        }
+
+
+        document.getElementById('deptID').addEventListener('change',fnc22)
+
+        function fnc22(){
+          document.getElementById('radValDEPT').value = this.value;
+        }
+
+        document.getElementById('fieldID').addEventListener('change',fnc33)
+
+        function fnc33(){
+          document.getElementById('radValFIELD').value = this.value;
+        }
+
+        document.getElementById('courseID').addEventListener('change',fnc44)
+
+        function fnc44(){
+          document.getElementById('radValCOURSE').value = this.value;
+        }
+    </script>
+</body>
+</html>
