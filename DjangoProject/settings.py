@@ -39,7 +39,7 @@ if allowed_hosts_str is not None:
     ALLOWED_HOSTS = allowed_hosts_str.split(" ")
 else:
     # Provide a default value or handle the absence of the environment variable
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'elysiumformregistration.com']
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'elysiumformregistration.com', 'django-vercel.onrender.com']
 
 # Now you can use ALLOWED_HOSTS in your Django settings.
 
